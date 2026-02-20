@@ -1159,8 +1159,6 @@ st.markdown("---")
 st.markdown("""
 <div style="text-align: center; color: #64748b; padding: 2rem 0;">
     <p><strong>ENTRESTO (Sacubitril/Valsartan) Professional Drug Information</strong></p>
-    <p>Pre-Pharmacode V2.5 Standard | FDA-Verified | Evidence-Based</p>
-    <p>Version 1.0.0 | Last Updated: February 2026</p>
     <p style="font-size: 0.9rem; margin-top: 1rem;">
         ⚠️ <em>This information is for healthcare professionals only. 
         Always consult the full prescribing information and clinical judgment when making treatment decisions.</em>
