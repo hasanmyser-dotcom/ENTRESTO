@@ -316,16 +316,16 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ==================== HEADER WITH DRUG IMAGE ====================
-image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "entresto.png")
+image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ENTRESTO.png")
 if not os.path.exists(image_path):
-    image_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "entresto.png")
+    image_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "ENTRESTO.png")
 
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     if os.path.exists(image_path):
         st.image(image_path, use_column_width=True)
     else:
-        st.warning("⚠️ Drug box image not found. Please place entresto.png in the app folder.")
+        st.warning("⚠️ Drug box image not found. Please place ENTRESTO.png in the app folder.")
 
 st.markdown('<h1 class="main-header">💊 ENTRESTO (Sacubitril/Valsartan)</h1>', unsafe_allow_html=True)
 st.markdown('<p class="sub-header">✅ FDA-verified • 🔬 Evidence-based • 📅 Updated February 2026</p>', unsafe_allow_html=True)
