@@ -315,6 +315,7 @@ st.markdown("""
     }
 
     /* ===== EXPANDER / ACCORDION STYLES ===== */
+    /* Legacy Streamlit class names */
     .streamlit-expanderHeader {
         background: linear-gradient(135deg, #0460A9, #0878C8) !important;
         color: white !important;
@@ -338,6 +339,8 @@ st.markdown("""
         border-radius: 0 0 10px 10px !important;
         padding: 1rem !important;
     }
+
+    /* data-testid selectors (modern Streamlit) */
     [data-testid="stExpander"] {
         border: none !important;
         border-radius: 10px !important;
@@ -345,7 +348,9 @@ st.markdown("""
         overflow: hidden !important;
         box-shadow: 0 2px 6px rgba(4, 96, 169, 0.1) !important;
     }
-    [data-testid="stExpander"] details { border: none !important; }
+    [data-testid="stExpander"] details {
+        border: none !important;
+    }
     [data-testid="stExpander"] summary {
         background: linear-gradient(135deg, #0460A9, #0878C8) !important;
         color: white !important;
@@ -370,18 +375,58 @@ st.markdown("""
         border-radius: 0 0 10px 10px !important;
         padding: 1rem !important;
     }
+
+    /* Broad fallback selectors for any Streamlit version */
+    .st-expander {
+        border: none !important;
+        border-radius: 10px !important;
+        margin-bottom: 0.8rem !important;
+        overflow: hidden !important;
+        box-shadow: 0 2px 6px rgba(4, 96, 169, 0.1) !important;
+    }
+    .st-expander details {
+        border: none !important;
+    }
+    .st-expander summary {
+        background: linear-gradient(135deg, #0460A9, #0878C8) !important;
+        color: white !important;
+        border-radius: 10px !important;
+        padding: 0.8rem 1.2rem !important;
+        font-size: 1.05rem !important;
+        font-weight: 600 !important;
+        transition: all 0.3s ease !important;
+    }
+    .st-expander summary:hover {
+        background: linear-gradient(135deg, #035C96, #0460A9) !important;
+        box-shadow: 0 4px 12px rgba(4, 96, 169, 0.35) !important;
+    }
+    .st-expander summary span { color: white !important; }
+    .st-expander summary svg { fill: white !important; color: white !important; }
+    .st-expander details[open] summary {
+        border-radius: 10px 10px 0 0 !important;
+    }
+
     @media (max-width: 768px) {
-        .streamlit-expanderHeader, [data-testid="stExpander"] summary {
+        .streamlit-expanderHeader,
+        [data-testid="stExpander"] summary,
+        .st-expander summary {
             font-size: 0.9rem !important;
             padding: 0.6rem 0.8rem !important;
         }
     }
     @media (prefers-color-scheme: dark) {
-        [data-testid="stExpander"] { box-shadow: 0 2px 6px rgba(0,0,0,0.3) !important; }
-        [data-testid="stExpander"] summary { background: linear-gradient(135deg, #035C96, #0460A9) !important; }
-        [data-testid="stExpander"] summary:hover { background: linear-gradient(135deg, #024A7A, #035C96) !important; }
+        [data-testid="stExpander"],
+        .st-expander { box-shadow: 0 2px 6px rgba(0,0,0,0.3) !important; }
+
+        [data-testid="stExpander"] summary,
+        .st-expander summary { background: linear-gradient(135deg, #035C96, #0460A9) !important; }
+
+        [data-testid="stExpander"] summary:hover,
+        .st-expander summary:hover { background: linear-gradient(135deg, #024A7A, #035C96) !important; }
+
         [data-testid="stExpander"] [data-testid="stExpanderDetails"],
-        .streamlit-expanderContent { border-color: #2D3D50 !important; background-color: #0C1520 !important; }
+        .streamlit-expanderContent,
+        .st-expander [data-testid="stExpanderDetails"] { border-color: #2D3D50 !important; background-color: #0C1520 !important; }
     }
 </style>
 """, unsafe_allow_html=True)
@@ -421,7 +466,19 @@ tabs = st.tabs([
 with tabs[0]:
     st.header("📖 Overview of ENTRESTO (Sacubitril/Valsartan)")
 
-    with st.expander("🎯 Indications & Available Strengths", expanded=True):
+    with st.expander("ℹ️ Basic Information", expanded=True):
+        st.markdown("""
+        <div class="info-box">
+        <p class="card-detail">🧪 <strong>Generic Name:</strong> Sacubitril / Valsartan</p>
+        <p class="card-detail">🏷️ <strong>Brand Name:</strong> ENTRESTO®</p>
+        <p class="card-detail">🏭 <strong>Manufacturer:</strong> Novartis Pharmaceuticals</p>
+        <p class="card-detail">💊 <strong>Drug Class:</strong> Angiotensin Receptor-Neprilysin Inhibitor (ARNI)</p>
+        <p class="card-detail">📅 <strong>FDA Approval:</strong> July 2015</p>
+        <p class="card-detail">📋 <strong>REMS Program:</strong> None required</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with st.expander("🎯 Indications & Available Strengths"):
         col1, col2 = st.columns(2)
         with col1:
             st.markdown("""
@@ -470,18 +527,6 @@ with tabs[0]:
             <li>⚠️ Do NOT use in pregnancy — fetal toxicity risk</li>
             <li>🔬 Monitor blood pressure, potassium, and renal function</li>
         </ul>
-        </div>
-        """, unsafe_allow_html=True)
-
-    with st.expander("ℹ️ Basic Information"):
-        st.markdown("""
-        <div class="info-box">
-        <p class="card-detail">🧪 <strong>Generic Name:</strong> Sacubitril / Valsartan</p>
-        <p class="card-detail">🏷️ <strong>Brand Name:</strong> ENTRESTO®</p>
-        <p class="card-detail">🏭 <strong>Manufacturer:</strong> Novartis Pharmaceuticals</p>
-        <p class="card-detail">💊 <strong>Drug Class:</strong> Angiotensin Receptor-Neprilysin Inhibitor (ARNI)</p>
-        <p class="card-detail">📅 <strong>FDA Approval:</strong> July 2015</p>
-        <p class="card-detail">📋 <strong>REMS Program:</strong> None required</p>
         </div>
         """, unsafe_allow_html=True)
 
