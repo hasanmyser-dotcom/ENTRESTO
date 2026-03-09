@@ -1130,7 +1130,7 @@ with tabs[8]:
     st.markdown("""
     <div class="reference-item">
         <strong>FDA Drug Database (Application No. 207620)</strong>
-        <p class="card-detail">Official U.S. Food and Drug Administration registry page containing the most up-to-date label, approval history, and clinical pharmacology reviews.</p>
+        <p class="card-detail">Official U.S. Food and Drug Administration registry page containing the most up-to-date label, approval history, and clinical pharmacology reviews specifically for Sacubitril/Valsartan.</p>
         <a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=207620" target="_blank">🔗 https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=207620</a>
     </div>
     """, unsafe_allow_html=True)
@@ -1141,34 +1141,27 @@ with tabs[8]:
         <a href="https://www.ema.europa.eu/en/medicines/human/EPAR/entresto" target="_blank">🔗 https://www.ema.europa.eu/en/medicines/human/EPAR/entresto</a>
     </div>
     """, unsafe_allow_html=True)
-    st.markdown("""
-    <div class="reference-item">
-        <strong>DailyMed (National Library of Medicine)</strong>
-        <p class="card-detail">The most current, NIH-hosted version of the official prescribing information (Package Insert).</p>
-        <a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0a20cb79-5096-4113-8822-7772cc2dbbba" target="_blank">🔗 https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0a20cb79-5096-4113-8822-7772cc2dbbba</a>
-    </div>
-    """, unsafe_allow_html=True)
 
     st.markdown("### 🔬 2. Pivotal Clinical Trials")
     st.markdown("""
     <div class="reference-item">
         <strong>PARADIGM-HF Trial (NEJM - PMID: 25176015)</strong>
-        <p class="card-detail">Angiotensin–Neprilysin Inhibition versus Enalapril in Heart Failure. The landmark study proving superiority over ACE inhibitors in reducing cardiovascular mortality.</p>
+        <p class="card-detail">Angiotensin–Neprilysin Inhibition versus Enalapril in Heart Failure. The landmark study proving Entresto's superiority over ACE inhibitors in reducing cardiovascular mortality.</p>
         <a href="https://pubmed.ncbi.nlm.nih.gov/25176015/" target="_blank">🔗 https://pubmed.ncbi.nlm.nih.gov/25176015/</a>
     </div>
     """, unsafe_allow_html=True)
     st.markdown("""
     <div class="reference-item">
         <strong>PARAGON-HF Trial (NEJM - PMID: 31475594)</strong>
-        <p class="card-detail">Angiotensin-Neprilysin Inhibition in Heart Failure with Preserved Ejection Fraction. Evaluation of the drug in HFpEF patients.</p>
+        <p class="card-detail">Angiotensin-Neprilysin Inhibition in Heart Failure with Preserved Ejection Fraction. Evaluation of Sacubitril/Valsartan in HFpEF patients.</p>
         <a href="https://pubmed.ncbi.nlm.nih.gov/31475594/" target="_blank">🔗 https://pubmed.ncbi.nlm.nih.gov/31475594/</a>
     </div>
     """, unsafe_allow_html=True)
     st.markdown("""
     <div class="reference-item">
-        <strong>PIONEER-HF Trial (JAMA - PMID: 30415124)</strong>
-        <p class="card-detail">Effect of Sacubitril/Valsartan vs Enalapril on NT-proBNP in Acute Decompensated Heart Failure.</p>
-        <a href="https://pubmed.ncbi.nlm.nih.gov/30415124/" target="_blank">🔗 https://pubmed.ncbi.nlm.nih.gov/30415124/</a>
+        <strong>PIONEER-HF Trial (NEJM - PMID: 30415601)</strong>
+        <p class="card-detail">Angiotensin-Neprilysin Inhibition in Acute Decompensated Heart Failure. Study on initiating Sacubitril/Valsartan in hospitalized patients.</p>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/30415601/" target="_blank">🔗 https://pubmed.ncbi.nlm.nih.gov/30415601/</a>
     </div>
     """, unsafe_allow_html=True)
 
@@ -1192,7 +1185,7 @@ with tabs[8]:
     st.markdown("""
     <div class="reference-item">
         <strong>ENTRESTO HCP Official Portal</strong>
-        <p class="card-detail">Novartis's official resource for healthcare providers, containing dosing algorithms, switching protocols from ACEi/ARBs, and safety guidelines.</p>
+        <p class="card-detail">Novartis's official resource for healthcare providers, containing dosing algorithms, switching protocols from ACEi/ARBs, and safety guidelines for Entresto.</p>
         <a href="https://www.entrestohcp.com/" target="_blank">🔗 https://www.entrestohcp.com/</a>
     </div>
     """, unsafe_allow_html=True)
@@ -1274,4 +1267,6 @@ st.markdown("""
     </p>
 </div>
 """, unsafe_allow_html=True)
+
+
 
