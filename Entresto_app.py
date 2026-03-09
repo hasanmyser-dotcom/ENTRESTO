@@ -1126,88 +1126,74 @@ with tabs[7]:
 with tabs[8]:
     st.header("📚 References and Sources")
 
-    st.markdown("### 📋 1. Regulatory & Official Sources (Prescribing Information)")
+    st.markdown("### 📋 1. Regulatory & Official Prescribing Information")
     st.markdown("""
     <div class="reference-item">
-        <strong>FDA Label (Revised April 2024)</strong>
-        <p class="card-detail">The official U.S. prescribing information, including indications, dosing, contraindications, and drug interactions (Section 7).</p>
-        <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/207620s025,218591s000lbl.pdf" target="_blank">https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/207620s025,218591s000lbl.pdf</a>
+        <strong>FDA Drug Database (Application No. 207620)</strong>
+        <p class="card-detail">Official U.S. Food and Drug Administration registry page containing the most up-to-date label, approval history, and clinical pharmacology reviews.</p>
+        <a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=207620" target="_blank">🔗 https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=207620</a>
     </div>
     """, unsafe_allow_html=True)
     st.markdown("""
     <div class="reference-item">
-        <strong>EMA EPAR Product Information</strong>
-        <p class="card-detail">The comprehensive European assessment of the drug and its pharmacological properties.</p>
-        <a href="https://www.ema.europa.eu/en/documents/product-information/entresto-epar-product-information_en.pdf" target="_blank">https://www.ema.europa.eu/en/documents/product-information/entresto-epar-product-information_en.pdf</a>
+        <strong>EMA European Public Assessment Report (EPAR)</strong>
+        <p class="card-detail">The European Medicines Agency's comprehensive overview, clinical characteristics, and authorization details for Entresto.</p>
+        <a href="https://www.ema.europa.eu/en/medicines/human/EPAR/entresto" target="_blank">🔗 https://www.ema.europa.eu/en/medicines/human/EPAR/entresto</a>
     </div>
     """, unsafe_allow_html=True)
     st.markdown("""
     <div class="reference-item">
-        <strong>Novartis Product Monograph</strong>
-        <p class="card-detail">The official document from Novartis detailing the mechanism of action and warnings.</p>
-        <a href="https://www.novartis.com/us-en/sites/novartis_us/files/entresto.pdf" target="_blank">https://www.novartis.com/us-en/sites/novartis_us/files/entresto.pdf</a>
+        <strong>DailyMed (National Library of Medicine)</strong>
+        <p class="card-detail">The most current, NIH-hosted version of the official prescribing information (Package Insert).</p>
+        <a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0a20cb79-5096-4113-8822-7772cc2dbbba" target="_blank">🔗 https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0a20cb79-5096-4113-8822-7772cc2dbbba</a>
     </div>
     """, unsafe_allow_html=True)
 
     st.markdown("### 🔬 2. Pivotal Clinical Trials")
     st.markdown("""
     <div class="reference-item">
-        <strong>PARADIGM-HF Trial (NEJM 2014)</strong>
-        <p class="card-detail">The landmark trial proving Entresto's superiority over enalapril in reducing cardiovascular mortality.</p>
-        <a href="https://www.nejm.org/doi/full/10.1056/NEJMoa1409077" target="_blank">https://www.nejm.org/doi/full/10.1056/NEJMoa1409077</a>
+        <strong>PARADIGM-HF Trial (NEJM - PMID: 25176015)</strong>
+        <p class="card-detail">Angiotensin–Neprilysin Inhibition versus Enalapril in Heart Failure. The landmark study proving superiority over ACE inhibitors in reducing cardiovascular mortality.</p>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/25176015/" target="_blank">🔗 https://pubmed.ncbi.nlm.nih.gov/25176015/</a>
     </div>
     """, unsafe_allow_html=True)
     st.markdown("""
     <div class="reference-item">
-        <strong>PARAGON-HF Trial (Circulation 2019)</strong>
-        <p class="card-detail">The study evaluating the drug in patients with heart failure with preserved ejection fraction (HFpEF).</p>
-        <a href="https://www.ahajournals.org/doi/10.1161/CIRCULATIONAHA.119.044586" target="_blank">https://www.ahajournals.org/doi/10.1161/CIRCULATIONAHA.119.044586</a>
+        <strong>PARAGON-HF Trial (NEJM - PMID: 31475594)</strong>
+        <p class="card-detail">Angiotensin-Neprilysin Inhibition in Heart Failure with Preserved Ejection Fraction. Evaluation of the drug in HFpEF patients.</p>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/31475594/" target="_blank">🔗 https://pubmed.ncbi.nlm.nih.gov/31475594/</a>
     </div>
     """, unsafe_allow_html=True)
     st.markdown("""
     <div class="reference-item">
-        <strong>PIONEER-HF Trial (JAMA 2019)</strong>
-        <p class="card-detail">The study evaluating the drug's use in acute decompensated heart failure.</p>
-        <a href="https://jamanetwork.com/journals/jama/fullarticle/2738764" target="_blank">https://jamanetwork.com/journals/jama/fullarticle/2738764</a>
+        <strong>PIONEER-HF Trial (JAMA - PMID: 30415124)</strong>
+        <p class="card-detail">Effect of Sacubitril/Valsartan vs Enalapril on NT-proBNP in Acute Decompensated Heart Failure.</p>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/30415124/" target="_blank">🔗 https://pubmed.ncbi.nlm.nih.gov/30415124/</a>
     </div>
     """, unsafe_allow_html=True)
 
     st.markdown("### 📖 3. Pharmacology & Drug Interactions")
     st.markdown("""
     <div class="reference-item">
-        <strong>FDA Clinical Pharmacology Review (NDA 207620)</strong>
-        <p class="card-detail">Detailed analysis of pharmacokinetics, CYP450 enzyme metabolism, and half-life.</p>
-        <a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2015/207620Orig1s000ClinPharmR.pdf" target="_blank">https://www.accessdata.fda.gov/drugsatfda_docs/nda/2015/207620Orig1s000ClinPharmR.pdf</a>
-    </div>
-    """, unsafe_allow_html=True)
-    st.markdown("""
-    <div class="reference-item">
         <strong>StatPearls (NCBI Bookshelf)</strong>
-        <p class="card-detail">A comprehensive review of the mechanism of action, indications, and toxicity specific to the sacubitril/valsartan combination.</p>
-        <a href="https://www.ncbi.nlm.nih.gov/books/NBK507904/" target="_blank">https://www.ncbi.nlm.nih.gov/books/NBK507904/</a>
+        <p class="card-detail">A comprehensive academic and clinical review of the Sacubitril/Valsartan mechanism of action, enzyme interactions, and toxicity.</p>
+        <a href="https://www.ncbi.nlm.nih.gov/books/NBK507904/" target="_blank">🔗 https://www.ncbi.nlm.nih.gov/books/NBK507904/</a>
     </div>
     """, unsafe_allow_html=True)
     st.markdown("""
     <div class="reference-item">
-        <strong>Drugs.com - Interaction Checker</strong>
-        <p class="card-detail">A comprehensive database to verify all potential drug interactions for Entresto.</p>
-        <a href="https://www.drugs.com/drug-interactions/entresto.html" target="_blank">https://www.drugs.com/drug-interactions/entresto.html</a>
-    </div>
-    """, unsafe_allow_html=True)
-    st.markdown("""
-    <div class="reference-item">
-        <strong>Medscape Reference</strong>
-        <p class="card-detail">A professional reference for drug interactions and clinical monitoring specific to the drug.</p>
-        <a href="https://reference.medscape.com/drug/entresto-sacubitril-valsartan-1000010/interactions" target="_blank">https://reference.medscape.com/drug/entresto-sacubitril-valsartan-1000010/interactions</a>
+        <strong>Drugs.com Professional Interaction Checker</strong>
+        <p class="card-detail">A dedicated interaction checker page specifically for Entresto, categorizing interactions by severity.</p>
+        <a href="https://www.drugs.com/drug-interactions/sacubitril-valsartan,entresto.html" target="_blank">🔗 https://www.drugs.com/drug-interactions/sacubitril-valsartan,entresto.html</a>
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("### 🌐 4. Dedicated Healthcare Professional Resource")
+    st.markdown("### 🌐 4. Healthcare Professional Guidelines")
     st.markdown("""
     <div class="reference-item">
-        <strong>ENTRESTO HCP Official Site</strong>
-        <p class="card-detail">The official resource for physicians and pharmacists from Novartis, providing guidelines on dosing adjustments and switching from ACE inhibitors.</p>
-        <a href="https://www.entrestohcp.com/" target="_blank">https://www.entrestohcp.com/</a>
+        <strong>ENTRESTO HCP Official Portal</strong>
+        <p class="card-detail">Novartis's official resource for healthcare providers, containing dosing algorithms, switching protocols from ACEi/ARBs, and safety guidelines.</p>
+        <a href="https://www.entrestohcp.com/" target="_blank">🔗 https://www.entrestohcp.com/</a>
     </div>
     """, unsafe_allow_html=True)
     st.markdown("---")
