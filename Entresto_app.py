@@ -1152,9 +1152,9 @@ with tabs[8]:
     """, unsafe_allow_html=True)
     st.markdown("""
     <div class="reference-item">
-        <strong>PARAGON-HF Trial (NEJM - PMID: 31475594)</strong>
+        <strong>PARAGON-HF Trial (NEJM - PMID: 31475794)</strong>
         <p class="card-detail">Angiotensin-Neprilysin Inhibition in Heart Failure with Preserved Ejection Fraction. Evaluation of Sacubitril/Valsartan in HFpEF patients.</p>
-        <a href="https://pubmed.ncbi.nlm.nih.gov/31475594/" target="_blank">🔗 https://pubmed.ncbi.nlm.nih.gov/31475594/</a>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/31475794/" target="_blank">🔗 https://pubmed.ncbi.nlm.nih.gov/31475794/</a>
     </div>
     """, unsafe_allow_html=True)
     st.markdown("""
