@@ -119,6 +119,13 @@ st.markdown("""
         background-color: #0460A9;
         color: white;
     }
+    /* إخفاء الخط السفلي للتبويبة النشطة */
+    .stTabs [data-baseweb="tab-highlight"] {
+        display: none !important;
+    }
+    .stTabs [data-baseweb="tab-border"] {
+        display: none !important;
+    }
     
     /* تحسين العرض على الموبايل */
     @media (max-width: 768px) {
@@ -466,17 +473,17 @@ tabs = st.tabs([
 with tabs[0]:
     st.header("📖 Overview of ENTRESTO (Sacubitril/Valsartan)")
 
-    with st.expander("ℹ️ Basic Information", expanded=True):
-        st.markdown("""
-        <div class="info-box">
-        <p class="card-detail">🧪 <strong>Generic Name:</strong> Sacubitril / Valsartan</p>
-        <p class="card-detail">🏷️ <strong>Brand Name:</strong> ENTRESTO®</p>
-        <p class="card-detail">🏭 <strong>Manufacturer:</strong> Novartis Pharmaceuticals</p>
-        <p class="card-detail">💊 <strong>Drug Class:</strong> Angiotensin Receptor-Neprilysin Inhibitor (ARNI)</p>
-        <p class="card-detail">📅 <strong>FDA Approval:</strong> July 2015</p>
-        <p class="card-detail">📋 <strong>REMS Program:</strong> None required</p>
-        </div>
-        """, unsafe_allow_html=True)
+    st.markdown("""
+    <div class="info-box">
+    <h4>ℹ️ Basic Information</h4>
+    <p class="card-detail">🧪 <strong>Generic Name:</strong> Sacubitril / Valsartan</p>
+    <p class="card-detail">🏷️ <strong>Brand Name:</strong> ENTRESTO®</p>
+    <p class="card-detail">🏭 <strong>Manufacturer:</strong> Novartis Pharmaceuticals</p>
+    <p class="card-detail">💊 <strong>Drug Class:</strong> Angiotensin Receptor-Neprilysin Inhibitor (ARNI)</p>
+    <p class="card-detail">📅 <strong>FDA Approval:</strong> July 2015</p>
+    <p class="card-detail">📋 <strong>REMS Program:</strong> None required</p>
+    </div>
+    """, unsafe_allow_html=True)
 
     with st.expander("🎯 Indications & Available Strengths"):
         col1, col2 = st.columns(2)
@@ -534,13 +541,13 @@ with tabs[0]:
 with tabs[1]:
     st.header("⚗️ Mechanism of Action")
 
-    with st.expander("🔬 ARNI Overview", expanded=True):
-        st.markdown("""
-        <div class="info-box">
-        <h3 style="color: #1e3a8a;">🔬 Dual-Acting Angiotensin Receptor-Neprilysin Inhibitor (ARNI)</h3>
-        <p>Entresto combines two mechanisms: Sacubitril (a neprilysin inhibitor prodrug) and Valsartan (an angiotensin II receptor blocker). Together, they enhance the natriuretic peptide system while blocking the harmful effects of the RAAS, providing superior cardiovascular protection compared to RAAS blockade alone.</p>
-        </div>
-        """, unsafe_allow_html=True)
+    st.markdown("### 🔬 ARNI Overview")
+    st.markdown("""
+    <div class="info-box">
+    <h3 style="color: #1e3a8a;">🔬 Dual-Acting Angiotensin Receptor-Neprilysin Inhibitor (ARNI)</h3>
+    <p>Entresto combines two mechanisms: Sacubitril (a neprilysin inhibitor prodrug) and Valsartan (an angiotensin II receptor blocker). Together, they enhance the natriuretic peptide system while blocking the harmful effects of the RAAS, providing superior cardiovascular protection compared to RAAS blockade alone.</p>
+    </div>
+    """, unsafe_allow_html=True)
 
     with st.expander("⚙️ Detailed Mechanism"):
         col1, col2 = st.columns(2)
@@ -582,36 +589,36 @@ with tabs[1]:
 # ==================== TAB 3: DOSAGE ====================
 with tabs[2]:
     st.header("💊 Dosage and Administration")
-    with st.expander("👨‍⚕️ Important Notes & Adult Dosing", expanded=True):
-        st.markdown("""
-        <div class="warning-box">
-        <h3>⚠️ Critical: ACE Inhibitor Washout Required</h3>
-        <p style="font-size: 1.1rem; font-weight: bold;">
-        Do NOT administer Entresto within 36 hours of switching from an ACE inhibitor. Concomitant use increases the risk of angioedema.
-        </p>
-        </div>
-        """, unsafe_allow_html=True)
+    st.markdown("""
+    <div class="warning-box">
+    <h3>⚠️ Critical: ACE Inhibitor Washout Required</h3>
+    <p style="font-size: 1.1rem; font-weight: bold;">
+    Do NOT administer Entresto within 36 hours of switching from an ACE inhibitor. Concomitant use increases the risk of angioedema.
+    </p>
+    </div>
+    """, unsafe_allow_html=True)
 
-        st.markdown("""
-        <div class="card-item">
-            <h4>1️⃣ Starting Dose</h4>
-            <p class="card-detail"><strong>Dose:</strong> 49/51 mg (sacubitril/valsartan)</p>
-            <p class="card-detail"><strong>Schedule:</strong> Twice Daily (BID)</p>
-            <p class="card-detail"><strong>Note:</strong> For patients NOT currently on ACEi/ARB or on low doses</p>
-        </div>
-        <div class="card-item">
-            <h4>2️⃣ Alternative Starting Dose</h4>
-            <p class="card-detail"><strong>Dose:</strong> 24/26 mg (sacubitril/valsartan)</p>
-            <p class="card-detail"><strong>Schedule:</strong> Twice Daily (BID)</p>
-            <p class="card-detail"><strong>Note:</strong> For patients with severe renal impairment (eGFR &lt;30), moderate hepatic impairment (Child-Pugh B), or low prior ACEi/ARB dose</p>
-        </div>
-        <div class="card-item">
-            <h4>3️⃣ Target Maintenance Dose</h4>
-            <p class="card-detail"><strong>Dose:</strong> 97/103 mg (sacubitril/valsartan)</p>
-            <p class="card-detail"><strong>Schedule:</strong> Twice Daily (BID)</p>
-            <p class="card-detail"><strong>Note:</strong> Double the dose every 2-4 weeks as tolerated to reach this target</p>
-        </div>
-        """, unsafe_allow_html=True)
+    st.markdown("### 👨‍⚕️ Adult Dosing")
+    st.markdown("""
+    <div class="card-item">
+        <h4>1️⃣ Starting Dose</h4>
+        <p class="card-detail"><strong>Dose:</strong> 49/51 mg (sacubitril/valsartan)</p>
+        <p class="card-detail"><strong>Schedule:</strong> Twice Daily (BID)</p>
+        <p class="card-detail"><strong>Note:</strong> For patients NOT currently on ACEi/ARB or on low doses</p>
+    </div>
+    <div class="card-item">
+        <h4>2️⃣ Alternative Starting Dose</h4>
+        <p class="card-detail"><strong>Dose:</strong> 24/26 mg (sacubitril/valsartan)</p>
+        <p class="card-detail"><strong>Schedule:</strong> Twice Daily (BID)</p>
+        <p class="card-detail"><strong>Note:</strong> For patients with severe renal impairment (eGFR &lt;30), moderate hepatic impairment (Child-Pugh B), or low prior ACEi/ARB dose</p>
+    </div>
+    <div class="card-item">
+        <h4>3️⃣ Target Maintenance Dose</h4>
+        <p class="card-detail"><strong>Dose:</strong> 97/103 mg (sacubitril/valsartan)</p>
+        <p class="card-detail"><strong>Schedule:</strong> Twice Daily (BID)</p>
+        <p class="card-detail"><strong>Note:</strong> Double the dose every 2-4 weeks as tolerated to reach this target</p>
+    </div>
+    """, unsafe_allow_html=True)
 
     with st.expander("👶 Pediatric Dosing (≥1 year)"):
         st.markdown("""
@@ -669,35 +676,35 @@ with tabs[2]:
 # ==================== TAB 4: PHARMACOKINETICS ====================
 with tabs[3]:
     st.header("⚖️ Pharmacokinetics")
-    with st.expander("📊 Pharmacokinetic Parameters Summary", expanded=True):
-        st.markdown("""
-        <div class="card-item">
-            <h4>📊 Sacubitril</h4>
-            <p class="card-detail"><strong>Bioavailability:</strong> >60%</p>
-            <p class="card-detail"><strong>Tmax:</strong> 0.5 hours</p>
-            <p class="card-detail"><strong>Half-life:</strong> 1.4 hours (prodrug)</p>
-            <p class="card-detail"><strong>Protein Binding:</strong> 94-97%</p>
-            <p class="card-detail"><strong>Metabolism:</strong> Rapidly converted by esterases to LBQ657 (active metabolite)</p>
-            <p class="card-detail"><strong>Excretion:</strong> Urine (52-68%)</p>
-        </div>
-        <div class="card-item">
-            <h4>📊 LBQ657 (Active Metabolite of Sacubitril)</h4>
-            <p class="card-detail"><strong>Tmax:</strong> 2 hours</p>
-            <p class="card-detail"><strong>Half-life:</strong> 11.5 hours</p>
-            <p class="card-detail"><strong>Protein Binding:</strong> 94-97%</p>
-            <p class="card-detail"><strong>Metabolism:</strong> Minimal further metabolism</p>
-            <p class="card-detail"><strong>Excretion:</strong> Urine and Feces</p>
-        </div>
-        <div class="card-item">
-            <h4>📊 Valsartan</h4>
-            <p class="card-detail"><strong>Bioavailability:</strong> 23%</p>
-            <p class="card-detail"><strong>Tmax:</strong> 1.5 hours</p>
-            <p class="card-detail"><strong>Half-life:</strong> 9.9 hours</p>
-            <p class="card-detail"><strong>Protein Binding:</strong> 94-97%</p>
-            <p class="card-detail"><strong>Metabolism:</strong> Minimal (~20%)</p>
-            <p class="card-detail"><strong>Excretion:</strong> Feces (86%)</p>
-        </div>
-        """, unsafe_allow_html=True)
+    st.markdown("### 📊 Pharmacokinetic Parameters Summary")
+    st.markdown("""
+    <div class="card-item">
+        <h4>📊 Sacubitril</h4>
+        <p class="card-detail"><strong>Bioavailability:</strong> >60%</p>
+        <p class="card-detail"><strong>Tmax:</strong> 0.5 hours</p>
+        <p class="card-detail"><strong>Half-life:</strong> 1.4 hours (prodrug)</p>
+        <p class="card-detail"><strong>Protein Binding:</strong> 94-97%</p>
+        <p class="card-detail"><strong>Metabolism:</strong> Rapidly converted by esterases to LBQ657 (active metabolite)</p>
+        <p class="card-detail"><strong>Excretion:</strong> Urine (52-68%)</p>
+    </div>
+    <div class="card-item">
+        <h4>📊 LBQ657 (Active Metabolite of Sacubitril)</h4>
+        <p class="card-detail"><strong>Tmax:</strong> 2 hours</p>
+        <p class="card-detail"><strong>Half-life:</strong> 11.5 hours</p>
+        <p class="card-detail"><strong>Protein Binding:</strong> 94-97%</p>
+        <p class="card-detail"><strong>Metabolism:</strong> Minimal further metabolism</p>
+        <p class="card-detail"><strong>Excretion:</strong> Urine and Feces</p>
+    </div>
+    <div class="card-item">
+        <h4>📊 Valsartan</h4>
+        <p class="card-detail"><strong>Bioavailability:</strong> 23%</p>
+        <p class="card-detail"><strong>Tmax:</strong> 1.5 hours</p>
+        <p class="card-detail"><strong>Half-life:</strong> 9.9 hours</p>
+        <p class="card-detail"><strong>Protein Binding:</strong> 94-97%</p>
+        <p class="card-detail"><strong>Metabolism:</strong> Minimal (~20%)</p>
+        <p class="card-detail"><strong>Excretion:</strong> Feces (86%)</p>
+    </div>
+    """, unsafe_allow_html=True)
 
     with st.expander("🧬 Distribution, Metabolism & Elimination"):
         col1, col2 = st.columns(2)
@@ -755,15 +762,14 @@ with tabs[3]:
 with tabs[4]:
     st.header("🚫 Contraindications and Warnings")
 
-    with st.expander("⚠️ Boxed Warning — Fetal Toxicity", expanded=True):
-        st.markdown("""
-        <div class="critical-box">
-        <h2 style="color: #dc2626; text-align: center;">🚨 BOXED WARNING — FETAL TOXICITY 🚨</h2>
-        <p style="font-size: 1.1rem; text-align: center; font-weight: bold;">
-        When pregnancy is detected, discontinue Entresto as soon as possible. Drugs that act directly on the renin-angiotensin system can cause injury and death to the developing fetus.
-        </p>
-        </div>
-        """, unsafe_allow_html=True)
+    st.markdown("""
+    <div class="critical-box">
+    <h2 style="color: #dc2626; text-align: center;">🚨 BOXED WARNING — FETAL TOXICITY 🚨</h2>
+    <p style="font-size: 1.1rem; text-align: center; font-weight: bold;">
+    When pregnancy is detected, discontinue Entresto as soon as possible. Drugs that act directly on the renin-angiotensin system can cause injury and death to the developing fetus.
+    </p>
+    </div>
+    """, unsafe_allow_html=True)
 
     with st.expander("🚨 Absolute Contraindications"):
         st.markdown("""
@@ -842,29 +848,29 @@ with tabs[4]:
 # ==================== TAB 6: SIDE EFFECTS ====================
 with tabs[5]:
     st.header("⚠️ Adverse Reactions (Side Effects)")
-    with st.expander("📊 Common Side Effects (PARADIGM-HF Trial)", expanded=True):
-        st.markdown("""
-        <div class="card-item">
-            <h4>🩸 Hypotension <span class="card-badge card-badge-red">18%</span></h4>
-            <p class="card-detail">💡 More common than Enalapril (12%). Monitor BP closely; correct volume depletion before starting.</p>
-        </div>
-        <div class="card-item">
-            <h4>⚗️ Hyperkalemia <span class="card-badge card-badge-red">12%</span></h4>
-            <p class="card-detail">💡 Less common than Enalapril (14%); favorable profile. Monitor serum potassium.</p>
-        </div>
-        <div class="card-item">
-            <h4>🤧 Cough <span class="card-badge card-badge-yellow">9%</span></h4>
-            <p class="card-detail">💡 Significantly less than ACE inhibitors (Enalapril 13%). Related to bradykinin accumulation.</p>
-        </div>
-        <div class="card-item">
-            <h4>💫 Dizziness <span class="card-badge card-badge-yellow">6%</span></h4>
-            <p class="card-detail">💡 Related to blood pressure reduction. Similar to Enalapril (5%).</p>
-        </div>
-        <div class="card-item">
-            <h4>🏥 Renal Failure / Elevated Creatinine <span class="card-badge card-badge-yellow">5%</span></h4>
-            <p class="card-detail">💡 Similar to Enalapril (5%). Monitor renal function periodically.</p>
-        </div>
-        """, unsafe_allow_html=True)
+    st.markdown("### 📊 Common Side Effects (PARADIGM-HF Trial)")
+    st.markdown("""
+    <div class="card-item">
+        <h4>🩸 Hypotension <span class="card-badge card-badge-red">18%</span></h4>
+        <p class="card-detail">💡 More common than Enalapril (12%). Monitor BP closely; correct volume depletion before starting.</p>
+    </div>
+    <div class="card-item">
+        <h4>⚗️ Hyperkalemia <span class="card-badge card-badge-red">12%</span></h4>
+        <p class="card-detail">💡 Less common than Enalapril (14%); favorable profile. Monitor serum potassium.</p>
+    </div>
+    <div class="card-item">
+        <h4>🤧 Cough <span class="card-badge card-badge-yellow">9%</span></h4>
+        <p class="card-detail">💡 Significantly less than ACE inhibitors (Enalapril 13%). Related to bradykinin accumulation.</p>
+    </div>
+    <div class="card-item">
+        <h4>💫 Dizziness <span class="card-badge card-badge-yellow">6%</span></h4>
+        <p class="card-detail">💡 Related to blood pressure reduction. Similar to Enalapril (5%).</p>
+    </div>
+    <div class="card-item">
+        <h4>🏥 Renal Failure / Elevated Creatinine <span class="card-badge card-badge-yellow">5%</span></h4>
+        <p class="card-detail">💡 Similar to Enalapril (5%). Monitor renal function periodically.</p>
+    </div>
+    """, unsafe_allow_html=True)
 
     with st.expander("🔴 Serious Reactions & Hematologic Effects"):
         col1, col2 = st.columns(2)
@@ -924,23 +930,23 @@ with tabs[5]:
 # ==================== TAB 7: DRUG INTERACTIONS ====================
 with tabs[6]:
     st.header("💊⚖️ Drug Interactions")
-    with st.expander("🔴 Contraindicated Combinations", expanded=True):
-        st.markdown("""
-        <div class="card-item" style="border-left: 4px solid #dc2626;">
-            <h4>🚫 ACE Inhibitors (e.g., Enalapril, Lisinopril, Ramipril) <span class="card-badge card-badge-red">CONTRAINDICATED</span></h4>
-            <p class="card-detail"><strong>Mechanism:</strong> Dual blockade of RAAS and neprilysin increases angioedema risk</p>
-            <p class="card-detail"><strong>Consequence:</strong> Life-threatening angioedema</p>
-            <p class="card-detail"><strong>Action:</strong> 36-hour washout period mandatory when switching</p>
-            <p class="card-detail" style="color: #64748b; font-size: 0.85rem;">Source: FDA Label Section 7</p>
-        </div>
-        <div class="card-item" style="border-left: 4px solid #dc2626;">
-            <h4>🚫 Aliskiren (in Diabetic Patients) <span class="card-badge card-badge-red">CONTRAINDICATED</span></h4>
-            <p class="card-detail"><strong>Mechanism:</strong> Dual RAAS blockade</p>
-            <p class="card-detail"><strong>Consequence:</strong> Increased risk of hypotension, hyperkalemia, and renal impairment</p>
-            <p class="card-detail"><strong>Action:</strong> Contraindicated in diabetes; avoid in eGFR &lt;60</p>
-            <p class="card-detail" style="color: #64748b; font-size: 0.85rem;">Source: FDA Label Section 7</p>
-        </div>
-        """, unsafe_allow_html=True)
+    st.markdown("### 🔴 Contraindicated Combinations")
+    st.markdown("""
+    <div class="card-item" style="border-left: 4px solid #dc2626;">
+        <h4>🚫 ACE Inhibitors (e.g., Enalapril, Lisinopril, Ramipril) <span class="card-badge card-badge-red">CONTRAINDICATED</span></h4>
+        <p class="card-detail"><strong>Mechanism:</strong> Dual blockade of RAAS and neprilysin increases angioedema risk</p>
+        <p class="card-detail"><strong>Consequence:</strong> Life-threatening angioedema</p>
+        <p class="card-detail"><strong>Action:</strong> 36-hour washout period mandatory when switching</p>
+        <p class="card-detail" style="color: #64748b; font-size: 0.85rem;">Source: FDA Label Section 7</p>
+    </div>
+    <div class="card-item" style="border-left: 4px solid #dc2626;">
+        <h4>🚫 Aliskiren (in Diabetic Patients) <span class="card-badge card-badge-red">CONTRAINDICATED</span></h4>
+        <p class="card-detail"><strong>Mechanism:</strong> Dual RAAS blockade</p>
+        <p class="card-detail"><strong>Consequence:</strong> Increased risk of hypotension, hyperkalemia, and renal impairment</p>
+        <p class="card-detail"><strong>Action:</strong> Contraindicated in diabetes; avoid in eGFR &lt;60</p>
+        <p class="card-detail" style="color: #64748b; font-size: 0.85rem;">Source: FDA Label Section 7</p>
+    </div>
+    """, unsafe_allow_html=True)
 
     with st.expander("🟡 Monitor Closely"):
         st.markdown("""
@@ -1028,48 +1034,48 @@ with tabs[6]:
 with tabs[7]:
     st.header("📊 Comparison with Similar Drugs")
 
-    with st.expander("🔬 Sacubitril/Valsartan vs. Alternative HF Therapies", expanded=True):
-        st.markdown("""
-        <div class="card-item" style="border-left: 4px solid #e74c3c; border: 2px solid #e74c3c;">
-            <h4>🏆 ENTRESTO (Sacubitril/Valsartan)</h4>
+    st.markdown("### 🔬 Sacubitril/Valsartan vs. Alternative HF Therapies")
+    st.markdown("""
+    <div class="card-item" style="border-left: 4px solid #e74c3c; border: 2px solid #e74c3c;">
+        <h4>🏆 ENTRESTO (Sacubitril/Valsartan)</h4>
         <p class="card-detail"><strong>Class:</strong> Angiotensin Receptor-Neprilysin Inhibitor (ARNI)</p>
         <p class="card-detail"><strong>Use:</strong> Chronic heart failure (HFrEF) — adults and pediatrics ≥1 year</p>
         <p class="card-detail"><strong>Mechanism:</strong> Dual-acting: Neprilysin inhibition + AT1 receptor blockade</p>
         <p class="card-detail"><strong>Key Toxicity:</strong> Hypotension (18%), Angioedema (0.5%)</p>
         <p class="card-detail"><strong>Food:</strong> With or without food</p>
-            <p class="card-detail"><strong>Efficacy:</strong> <span class="card-badge card-badge-green">Superior to Enalapril — 20% CV death reduction (PARADIGM-HF)</span></p>
-        </div>
-        """, unsafe_allow_html=True)
+        <p class="card-detail"><strong>Efficacy:</strong> <span class="card-badge card-badge-green">Superior to Enalapril — 20% CV death reduction (PARADIGM-HF)</span></p>
+    </div>
+    """, unsafe_allow_html=True)
 
-        st.markdown("""
-        <div class="card-item">
-            <h4>💊 Enalapril (ACE Inhibitor)</h4>
-            <p class="card-detail"><strong>Class:</strong> ACE Inhibitor</p>
-            <p class="card-detail"><strong>Use:</strong> Heart failure, hypertension</p>
-            <p class="card-detail"><strong>Mechanism:</strong> ACE inhibition → reduces angiotensin II and aldosterone</p>
-            <p class="card-detail"><strong>Key Toxicity:</strong> Cough (13%), Hyperkalemia (14%), Angioedema (0.2%)</p>
-            <p class="card-detail"><strong>Food:</strong> With or without food</p>
-            <p class="card-detail"><strong>Efficacy:</strong> Standard of care comparator; inferior to Entresto in PARADIGM-HF</p>
-        </div>
-        <div class="card-item">
-            <h4>💊 Valsartan (ARB — Standalone)</h4>
-            <p class="card-detail"><strong>Class:</strong> Angiotensin II Receptor Blocker (ARB)</p>
-            <p class="card-detail"><strong>Use:</strong> Heart failure, hypertension, post-MI</p>
-            <p class="card-detail"><strong>Mechanism:</strong> AT1 receptor blockade only</p>
-            <p class="card-detail"><strong>Key Toxicity:</strong> Less cough than ACEi; Hyperkalemia, Hypotension</p>
-            <p class="card-detail"><strong>Food:</strong> With or without food</p>
-            <p class="card-detail"><strong>Efficacy:</strong> ACEi-equivalent for HF; lacks neprilysin inhibition benefit</p>
-        </div>
-        <div class="card-item">
-            <h4>💊 Carvedilol (Beta-Blocker)</h4>
-            <p class="card-detail"><strong>Class:</strong> Non-selective Beta-Blocker with Alpha-1 blockade</p>
-            <p class="card-detail"><strong>Use:</strong> Heart failure (HFrEF), hypertension</p>
-            <p class="card-detail"><strong>Mechanism:</strong> Beta-1/Beta-2 and Alpha-1 adrenergic blockade</p>
-            <p class="card-detail"><strong>Key Toxicity:</strong> Bradycardia, Fatigue, Hypotension</p>
-            <p class="card-detail"><strong>Food:</strong> Take with food to slow absorption</p>
-            <p class="card-detail"><strong>Efficacy:</strong> Proven mortality benefit in HFrEF; used as adjunct to ARNI</p>
-        </div>
-        """, unsafe_allow_html=True)
+    st.markdown("""
+    <div class="card-item">
+        <h4>💊 Enalapril (ACE Inhibitor)</h4>
+        <p class="card-detail"><strong>Class:</strong> ACE Inhibitor</p>
+        <p class="card-detail"><strong>Use:</strong> Heart failure, hypertension</p>
+        <p class="card-detail"><strong>Mechanism:</strong> ACE inhibition → reduces angiotensin II and aldosterone</p>
+        <p class="card-detail"><strong>Key Toxicity:</strong> Cough (13%), Hyperkalemia (14%), Angioedema (0.2%)</p>
+        <p class="card-detail"><strong>Food:</strong> With or without food</p>
+        <p class="card-detail"><strong>Efficacy:</strong> Standard of care comparator; inferior to Entresto in PARADIGM-HF</p>
+    </div>
+    <div class="card-item">
+        <h4>💊 Valsartan (ARB — Standalone)</h4>
+        <p class="card-detail"><strong>Class:</strong> Angiotensin II Receptor Blocker (ARB)</p>
+        <p class="card-detail"><strong>Use:</strong> Heart failure, hypertension, post-MI</p>
+        <p class="card-detail"><strong>Mechanism:</strong> AT1 receptor blockade only</p>
+        <p class="card-detail"><strong>Key Toxicity:</strong> Less cough than ACEi; Hyperkalemia, Hypotension</p>
+        <p class="card-detail"><strong>Food:</strong> With or without food</p>
+        <p class="card-detail"><strong>Efficacy:</strong> ACEi-equivalent for HF; lacks neprilysin inhibition benefit</p>
+    </div>
+    <div class="card-item">
+        <h4>💊 Carvedilol (Beta-Blocker)</h4>
+        <p class="card-detail"><strong>Class:</strong> Non-selective Beta-Blocker with Alpha-1 blockade</p>
+        <p class="card-detail"><strong>Use:</strong> Heart failure (HFrEF), hypertension</p>
+        <p class="card-detail"><strong>Mechanism:</strong> Beta-1/Beta-2 and Alpha-1 adrenergic blockade</p>
+        <p class="card-detail"><strong>Key Toxicity:</strong> Bradycardia, Fatigue, Hypotension</p>
+        <p class="card-detail"><strong>Food:</strong> Take with food to slow absorption</p>
+        <p class="card-detail"><strong>Efficacy:</strong> Proven mortality benefit in HFrEF; used as adjunct to ARNI</p>
+    </div>
+    """, unsafe_allow_html=True)
 
     with st.expander("🏆 When to Choose & Key Differentiators"):
         col1, col2 = st.columns(2)
@@ -1119,66 +1125,119 @@ with tabs[7]:
 # ==================== TAB 9: REFERENCES ====================
 with tabs[8]:
     st.header("📚 References and Sources")
-    
-    with st.expander("📋 Primary Regulatory Sources", expanded=True):
-        st.markdown("""
-        **1. FDA Prescribing Information — ENTRESTO (Sacubitril/Valsartan)**  
-        Full prescribing information including indications, dosage, warnings, and pharmacokinetics.  
-        🔗 [https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/207620s018lbl.pdf](https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/207620s018lbl.pdf)
-        """)
-        st.markdown("---")
-        st.markdown("""
-        **2. EMA Summary of Product Characteristics (SmPC) — Entresto**  
-        European Medicines Agency product information for Entresto.  
-        🔗 [https://www.ema.europa.eu/en/medicines/human/EPAR/entresto](https://www.ema.europa.eu/en/medicines/human/EPAR/entresto)
-        """)
 
-    with st.expander("🔬 Key Clinical Studies & Reviews"):
-        st.markdown("""
-        **3. PARADIGM-HF Trial — McMurray et al., NEJM 2014**  
-        Angiotensin–Neprilysin Inhibition versus Enalapril in Heart Failure. Landmark trial demonstrating superiority of sacubitril/valsartan over enalapril.  
-        🔗 [https://www.nejm.org/doi/full/10.1056/NEJMoa1409077](https://www.nejm.org/doi/full/10.1056/NEJMoa1409077)
-        """)
-        st.markdown("---")
-        st.markdown("""
-        **4. ACC/AHA Heart Failure Guidelines 2022**  
-        Guideline for Management of Heart Failure — recommends ARNI as first-line for HFrEF.  
-        🔗 [https://www.jacc.org/doi/10.1016/j.jacc.2021.12.012](https://www.jacc.org/doi/10.1016/j.jacc.2021.12.012)
-        """)
-        st.markdown("---")
-        st.markdown("""
-        **5. Drugs.com — Entresto Drug Interactions**  
-        Comprehensive drug interaction database for Entresto.  
-        🔗 [https://www.drugs.com/drug-interactions/entresto.html](https://www.drugs.com/drug-interactions/entresto.html)
-        """)
-        st.markdown("---")
-        st.info("""
-        **📊 Data Accuracy Statement**
+    st.markdown("### 📋 1. Regulatory & Official Sources (Prescribing Information)")
+    st.markdown("""
+    <div class="reference-item">
+        <strong>FDA Label (Revised April 2024)</strong>
+        <p class="card-detail">The official U.S. prescribing information, including indications, dosing, contraindications, and drug interactions (Section 7).</p>
+        <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/207620s025,218591s000lbl.pdf" target="_blank">https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/207620s025,218591s000lbl.pdf</a>
+    </div>
+    """, unsafe_allow_html=True)
+    st.markdown("""
+    <div class="reference-item">
+        <strong>EMA EPAR Product Information</strong>
+        <p class="card-detail">The comprehensive European assessment of the drug and its pharmacological properties.</p>
+        <a href="https://www.ema.europa.eu/en/documents/product-information/entresto-epar-product-information_en.pdf" target="_blank">https://www.ema.europa.eu/en/documents/product-information/entresto-epar-product-information_en.pdf</a>
+    </div>
+    """, unsafe_allow_html=True)
+    st.markdown("""
+    <div class="reference-item">
+        <strong>Novartis Product Monograph</strong>
+        <p class="card-detail">The official document from Novartis detailing the mechanism of action and warnings.</p>
+        <a href="https://www.novartis.com/us-en/sites/novartis_us/files/entresto.pdf" target="_blank">https://www.novartis.com/us-en/sites/novartis_us/files/entresto.pdf</a>
+    </div>
+    """, unsafe_allow_html=True)
 
-        All information in this application has been verified against:
-        - FDA Prescribing Information
-        - Peer-reviewed clinical studies and guidelines
+    st.markdown("### 🔬 2. Pivotal Clinical Trials")
+    st.markdown("""
+    <div class="reference-item">
+        <strong>PARADIGM-HF Trial (NEJM 2014)</strong>
+        <p class="card-detail">The landmark trial proving Entresto's superiority over enalapril in reducing cardiovascular mortality.</p>
+        <a href="https://www.nejm.org/doi/full/10.1056/NEJMoa1409077" target="_blank">https://www.nejm.org/doi/full/10.1056/NEJMoa1409077</a>
+    </div>
+    """, unsafe_allow_html=True)
+    st.markdown("""
+    <div class="reference-item">
+        <strong>PARAGON-HF Trial (Circulation 2019)</strong>
+        <p class="card-detail">The study evaluating the drug in patients with heart failure with preserved ejection fraction (HFpEF).</p>
+        <a href="https://www.ahajournals.org/doi/10.1161/CIRCULATIONAHA.119.044586" target="_blank">https://www.ahajournals.org/doi/10.1161/CIRCULATIONAHA.119.044586</a>
+    </div>
+    """, unsafe_allow_html=True)
+    st.markdown("""
+    <div class="reference-item">
+        <strong>PIONEER-HF Trial (JAMA 2019)</strong>
+        <p class="card-detail">The study evaluating the drug's use in acute decompensated heart failure.</p>
+        <a href="https://jamanetwork.com/journals/jama/fullarticle/2738764" target="_blank">https://jamanetwork.com/journals/jama/fullarticle/2738764</a>
+    </div>
+    """, unsafe_allow_html=True)
 
-        **📅 Last Updated:** February 2026  
-        **📌 Version:** 1.0.0  
-        **✅ Verification Status:** All references checked and validated  
-        **🔬 Methodology:** Pre-Pharmacode V2.5 Standard with Triple-Verification
-        """)
+    st.markdown("### 📖 3. Pharmacology & Drug Interactions")
+    st.markdown("""
+    <div class="reference-item">
+        <strong>FDA Clinical Pharmacology Review (NDA 207620)</strong>
+        <p class="card-detail">Detailed analysis of pharmacokinetics, CYP450 enzyme metabolism, and half-life.</p>
+        <a href="https://www.accessdata.fda.gov/drugsatfda_docs/nda/2015/207620Orig1s000ClinPharmR.pdf" target="_blank">https://www.accessdata.fda.gov/drugsatfda_docs/nda/2015/207620Orig1s000ClinPharmR.pdf</a>
+    </div>
+    """, unsafe_allow_html=True)
+    st.markdown("""
+    <div class="reference-item">
+        <strong>StatPearls (NCBI Bookshelf)</strong>
+        <p class="card-detail">A comprehensive review of the mechanism of action, indications, and toxicity specific to the sacubitril/valsartan combination.</p>
+        <a href="https://www.ncbi.nlm.nih.gov/books/NBK507904/" target="_blank">https://www.ncbi.nlm.nih.gov/books/NBK507904/</a>
+    </div>
+    """, unsafe_allow_html=True)
+    st.markdown("""
+    <div class="reference-item">
+        <strong>Drugs.com - Interaction Checker</strong>
+        <p class="card-detail">A comprehensive database to verify all potential drug interactions for Entresto.</p>
+        <a href="https://www.drugs.com/drug-interactions/entresto.html" target="_blank">https://www.drugs.com/drug-interactions/entresto.html</a>
+    </div>
+    """, unsafe_allow_html=True)
+    st.markdown("""
+    <div class="reference-item">
+        <strong>Medscape Reference</strong>
+        <p class="card-detail">A professional reference for drug interactions and clinical monitoring specific to the drug.</p>
+        <a href="https://reference.medscape.com/drug/entresto-sacubitril-valsartan-1000010/interactions" target="_blank">https://reference.medscape.com/drug/entresto-sacubitril-valsartan-1000010/interactions</a>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("### 🌐 4. Dedicated Healthcare Professional Resource")
+    st.markdown("""
+    <div class="reference-item">
+        <strong>ENTRESTO HCP Official Site</strong>
+        <p class="card-detail">The official resource for physicians and pharmacists from Novartis, providing guidelines on dosing adjustments and switching from ACE inhibitors.</p>
+        <a href="https://www.entrestohcp.com/" target="_blank">https://www.entrestohcp.com/</a>
+    </div>
+    """, unsafe_allow_html=True)
+    st.markdown("---")
+    st.info("""
+    **📊 Data Accuracy Statement**
+
+    All information in this application has been verified against:
+    - FDA Prescribing Information
+    - Peer-reviewed clinical studies and guidelines
+
+    **📅 Last Updated:** February 2026  
+    **📌 Version:** 1.0.0  
+    **✅ Verification Status:** All references checked and validated  
+    **🔬 Methodology:** Pre-Pharmacode V2.5 Standard with Triple-Verification
+    """)
 
 # ==================== TAB 10: NOVARTIS AG ====================
 with tabs[9]:
     st.header("🏢 Novartis AG — Manufacturer Profile")
 
-    with st.expander("🏛️ Corporate Overview", expanded=True):
-        st.markdown("""
-        <div class="info-box">
+    st.markdown("""
+    <div class="info-box">
+    <h4>🏛️ Corporate Overview</h4>
     <p class="card-detail">🏢 <strong>Company Name:</strong> Novartis AG</p>
     <p class="card-detail">📍 <strong>Headquarters:</strong> Basel, Switzerland</p>
     <p class="card-detail">📜 <strong>History:</strong> Formed in 1996 through the merger of two major Swiss companies, <strong>Ciba-Geigy</strong> and <strong>Sandoz</strong>.</p>
     <p class="card-detail">🌍 <strong>Global Standing:</strong> Consistently ranks as one of the largest and most highly valued multinational pharmaceutical companies in the world.</p>
     <p class="card-detail">🎯 <strong>Core Therapeutic Areas:</strong> Cardiovascular, Renal and Metabolism (CRM), Oncology, Immunology, and Neuroscience.</p>
-        </div>
-        """, unsafe_allow_html=True)
+    </div>
+    """, unsafe_allow_html=True)
 
     with st.expander("❤️ Leadership in Cardiovascular Health"):
 
