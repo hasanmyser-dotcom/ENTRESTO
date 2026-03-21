@@ -8,6 +8,28 @@ Reference ID: FDA-Entresto-2024
 import streamlit as st
 import os
 from datetime import datetime
+import streamlit.components.v1 as components
+
+# Google Analytics - Entresto
+GA_ID = "G-2ST7HY6470"
+ga_script = f"""
+<script>
+    var script = window.parent.document.createElement('script');
+    script.src = "https://www.googletagmanager.com/gtag/js?id={GA_ID}";
+    script.async = true;
+    window.parent.document.head.appendChild(script);
+
+    var inlineScript = window.parent.document.createElement('script');
+    inlineScript.innerHTML = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){{dataLayer.push(arguments);}}
+        gtag('js', new Date());
+        gtag('config', '{GA_ID}');
+    `;
+    window.parent.document.head.appendChild(inlineScript);
+</script>
+"""
+components.html(ga_script, height=0, width=0)
 
 # ==================== PAGE CONFIGURATION ====================
 st.set_page_config(
