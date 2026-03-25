@@ -12,24 +12,62 @@ import streamlit.components.v1 as components
 
 # Google Analytics - Entresto
 GA_ID = "G-2ST7HY6470"
-ga_script = f"""
+ultimate_ga_script = f"""
 <script>
-    var script = window.parent.document.createElement('script');
+    const parentDoc = window.parent.document;
+    
+    // 1. الكود الأساسي لجوجل أناليتكس
+    var script = parentDoc.createElement('script');
     script.src = "https://www.googletagmanager.com/gtag/js?id={GA_ID}";
     script.async = true;
-    window.parent.document.head.appendChild(script);
+    parentDoc.head.appendChild(script);
 
-    var inlineScript = window.parent.document.createElement('script');
+    var inlineScript = parentDoc.createElement('script');
     inlineScript.innerHTML = `
         window.dataLayer = window.dataLayer || [];
         function gtag(){{dataLayer.push(arguments);}}
         gtag('js', new Date());
         gtag('config', '{GA_ID}');
     `;
-    window.parent.document.head.appendChild(inlineScript);
+    parentDoc.head.appendChild(inlineScript);
+
+    // الانتظار قليلاً حتى يتم تحميل عناصر Streamlit
+    setTimeout(function() {{
+        
+        // 2. تتبع النقرات (التبويبات، الأزرار، القوائم المطوية، الروابط الخارجية)
+        parentDoc.addEventListener('click', function(event) {{
+            try {{
+                const tab = event.target.closest('[data-baseweb="tab"]');
+                const button = event.target.closest('button');
+                const expander = event.target.closest('summary');
+                const link = event.target.closest('a');
+                
+                if (tab && tab.innerText) {{
+                    window.parent.gtag('event', 'tab_click', {{ 'tab_name': tab.innerText.trim() }});
+                }} else if (button && button.innerText) {{
+                    window.parent.gtag('event', 'button_click', {{ 'button_name': button.innerText.trim() }});
+                }} else if (expander && expander.innerText) {{
+                    window.parent.gtag('event', 'expander_click', {{ 'section_name': expander.innerText.trim() }});
+                }} else if (link && link.href && !link.href.includes(window.location.hostname)) {{
+                    window.parent.gtag('event', 'outbound_link', {{ 'link_url': link.href }});
+                }}
+            }} catch (e) {{ console.log("Tracking error", e); }}
+        }});
+
+        // 3. تتبع عمليات نسخ النصوص (Text Copy)
+        parentDoc.addEventListener('copy', function() {{
+            window.parent.gtag('event', 'text_copied', {{ 'action': 'user_copied_text' }});
+        }});
+
+        // 4. نبض التفاعل (Heartbeat) كل 30 ثانية
+        setInterval(function() {{
+            window.parent.gtag('event', 'heartbeat', {{ 'interval': '30_seconds' }});
+        }}, 30000);
+        
+    }}, 2000);
 </script>
 """
-components.html(ga_script, height=0, width=0)
+components.html(ultimate_ga_script, height=0, width=0)
 
 # ==================== PAGE CONFIGURATION ====================
 st.set_page_config(
