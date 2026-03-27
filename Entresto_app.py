@@ -12,62 +12,126 @@ import streamlit.components.v1 as components
 
 # Google Analytics - Entresto
 GA_ID = "G-2ST7HY6470"
+GA_APP_NAME = "ENTRESTO"
 ultimate_ga_script = f"""
 <script>
     const parentDoc = window.parent.document;
     
-    // 1. الكود الأساسي لجوجل أناليتكس
-    var script = parentDoc.createElement('script');
-    script.src = "https://www.googletagmanager.com/gtag/js?id={GA_ID}";
-    script.async = true;
-    parentDoc.head.appendChild(script);
+    // 1. منع حقن السكربت أكثر من مرة
+    if (!parentDoc.querySelector('script[src*="googletagmanager.com/gtag/js?id={GA_ID}"]')) {{
+        var script = parentDoc.createElement('script');
+        script.src = "https://www.googletagmanager.com/gtag/js?id={GA_ID}";
+        script.async = true;
+        parentDoc.head.appendChild(script);
 
-    var inlineScript = parentDoc.createElement('script');
-    inlineScript.innerHTML = `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){{dataLayer.push(arguments);}}
-        gtag('js', new Date());
-        gtag('config', '{GA_ID}');
-    `;
-    parentDoc.head.appendChild(inlineScript);
+        var inlineScript = parentDoc.createElement('script');
+        inlineScript.innerHTML = `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){{dataLayer.push(arguments);}}
+            gtag('js', new Date());
+            gtag('config', '{GA_ID}', {{ 'app_name': '{GA_APP_NAME}' }});
+        `;
+        parentDoc.head.appendChild(inlineScript);
+    }}
 
-    // الانتظار قليلاً حتى يتم تحميل عناصر Streamlit
-    setTimeout(function() {{
-        
-        // 2. تتبع النقرات (التبويبات، الأزرار، القوائم المطوية، الروابط الخارجية)
-        parentDoc.addEventListener('click', function(event) {{
-            try {{
-                const tab = event.target.closest('[data-baseweb="tab"]');
-                const button = event.target.closest('button');
-                const expander = event.target.closest('summary');
-                const link = event.target.closest('a');
-                
-                if (tab && tab.innerText) {{
-                    window.parent.gtag('event', 'tab_click', {{ 'tab_name': tab.innerText.trim() }});
-                }} else if (button && button.innerText) {{
-                    window.parent.gtag('event', 'button_click', {{ 'button_name': button.innerText.trim() }});
-                }} else if (expander && expander.innerText) {{
-                    window.parent.gtag('event', 'expander_click', {{ 'section_name': expander.innerText.trim() }});
-                }} else if (link && link.href && !link.href.includes(window.location.hostname)) {{
-                    window.parent.gtag('event', 'outbound_link', {{ 'link_url': link.href }});
+    // 2. منع تكرار الـ Event Listeners و Heartbeat
+    if (!window.parent._gaListenersAttached_{GA_ID.replace('-', '_')}) {{
+        window.parent._gaListenersAttached_{GA_ID.replace('-', '_')} = true;
+
+        // متغيرات التتبع
+        var _gaStartTime = Date.now();
+        var _gaElapsedSeconds = 0;
+        var _gaScrollTracked = {{}};
+        var _gaFirstTabTracked = false;
+        var _gaLastTab = 'Overview';
+
+        setTimeout(function() {{
+            
+            // تتبع النقرات (التبويبات، الأزرار، القوائم المطوية، الروابط الخارجية)
+            parentDoc.addEventListener('click', function(event) {{
+                try {{
+                    const tab = event.target.closest('[data-baseweb="tab"]');
+                    const button = event.target.closest('button');
+                    const expander = event.target.closest('summary');
+                    const link = event.target.closest('a');
+                    
+                    if (tab && tab.innerText) {{
+                        var tabName = tab.innerText.trim();
+                        _gaLastTab = tabName;
+                        window.parent.gtag('event', 'tab_click', {{ 'tab_name': tabName, 'app_name': '{GA_APP_NAME}' }});
+                        // تتبع أول تبويب يفتحه المستخدم
+                        if (!_gaFirstTabTracked) {{
+                            _gaFirstTabTracked = true;
+                            window.parent.gtag('event', 'first_tab_click', {{ 'tab_name': tabName, 'app_name': '{GA_APP_NAME}' }});
+                        }}
+                    }} else if (button && button.innerText) {{
+                        window.parent.gtag('event', 'button_click', {{ 'button_name': button.innerText.trim(), 'app_name': '{GA_APP_NAME}' }});
+                    }} else if (expander && expander.innerText) {{
+                        window.parent.gtag('event', 'expander_click', {{ 'section_name': expander.innerText.trim(), 'app_name': '{GA_APP_NAME}' }});
+                    }} else if (link && link.href && !link.href.includes(window.location.hostname)) {{
+                        window.parent.gtag('event', 'outbound_link', {{ 'link_url': link.href, 'app_name': '{GA_APP_NAME}' }});
+                    }}
+                }} catch (e) {{ console.log("Tracking error", e); }}
+            }});
+
+            // تتبع عمليات نسخ النصوص مع المحتوى المنسوخ
+            parentDoc.addEventListener('copy', function() {{
+                try {{
+                    var selectedText = parentDoc.getSelection().toString().substring(0, 100);
+                    window.parent.gtag('event', 'text_copied', {{
+                        'copied_text': selectedText,
+                        'app_name': '{GA_APP_NAME}'
+                    }});
+                }} catch (e) {{
+                    window.parent.gtag('event', 'text_copied', {{ 'copied_text': 'unknown', 'app_name': '{GA_APP_NAME}' }});
                 }}
-            }} catch (e) {{ console.log("Tracking error", e); }}
-        }});
+            }});
 
-        // 3. تتبع عمليات نسخ النصوص (Text Copy)
-        parentDoc.addEventListener('copy', function() {{
-            window.parent.gtag('event', 'text_copied', {{ 'action': 'user_copied_text' }});
-        }});
+            // تتبع عمق التمرير (Scroll Depth)
+            var scrollTarget = parentDoc.querySelector('[data-testid="stAppViewContainer"]') || parentDoc.documentElement;
+            var scrollContainer = scrollTarget === parentDoc.documentElement ? parentDoc : scrollTarget;
+            (scrollContainer === parentDoc ? window.parent : scrollTarget).addEventListener('scroll', function() {{
+                try {{
+                    var el = scrollTarget;
+                    var scrollPercent = Math.round((el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100);
+                    [25, 50, 75, 100].forEach(function(threshold) {{
+                        if (scrollPercent >= threshold && !_gaScrollTracked[threshold]) {{
+                            _gaScrollTracked[threshold] = true;
+                            window.parent.gtag('event', 'scroll_depth', {{
+                                'percent': threshold,
+                                'app_name': '{GA_APP_NAME}'
+                            }});
+                        }}
+                    }});
+                }} catch (e) {{ console.log("Scroll tracking error", e); }}
+            }});
 
-        // 4. نبض التفاعل (Heartbeat) كل 30 ثانية
-        setInterval(function() {{
-            window.parent.gtag('event', 'heartbeat', {{ 'interval': '30_seconds' }});
-        }}, 30000);
-        
-    }}, 2000);
+            // نبض التفاعل مع الوقت التراكمي (Engagement Heartbeat)
+            setInterval(function() {{
+                _gaElapsedSeconds += 30;
+                window.parent.gtag('event', 'heartbeat', {{
+                    'interval': '30_seconds',
+                    'total_time_seconds': _gaElapsedSeconds,
+                    'app_name': '{GA_APP_NAME}'
+                }});
+            }}, 30000);
+
+            // تتبع حدث الخروج من الصفحة
+            window.parent.addEventListener('beforeunload', function() {{
+                var totalTime = Math.round((Date.now() - _gaStartTime) / 1000);
+                window.parent.gtag('event', 'page_exit', {{
+                    'total_time_seconds': totalTime,
+                    'last_tab': _gaLastTab,
+                    'app_name': '{GA_APP_NAME}'
+                }});
+            }});
+            
+        }}, 2000);
+    }}
 </script>
 """
 components.html(ultimate_ga_script, height=0, width=0)
+
 
 # ==================== PAGE CONFIGURATION ====================
 st.set_page_config(
